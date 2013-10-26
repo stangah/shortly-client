@@ -1,0 +1,12 @@
+<input type="text" placeholder="Search" ng-model="searchQuery"> 
+<a> Sort by </a>
+<select ng-init="sortBy = 'visits'" ng-model="sortBy" >
+  <option value="updated_at">Last Visited Time</option>
+  <option value="created_at">Latest</option>
+  <option value="url">Url</option>
+  <option value="visits">Visit Count</option>
+</select>
+
+<div class = 'link' ng-repeat="link in links | filter:searchQuery | orderBy:sortBy">
+  <span link-view ng-model="link"></span>
+</div>

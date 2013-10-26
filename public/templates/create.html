@@ -1,0 +1,24 @@
+<span> <%= current_user().username.to_json() %> </span>
+
+
+<a href="/logout">Logout</a>
+
+<div class="creator">
+  <form>
+      <input class="text" type="text" ng-init="link = 'http://'" ng-model="link" ngpattern='/(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/' name="url">
+      <button type="submit" ng-init="spinnerShow = false" ng-click="sendMsg()">Shorten</button>
+  </form>
+
+  <img class="spinner" src="/spiffygif_46x46.gif" ng-show="spinnerShow">
+  <div class="message" ng-model="message"></div>
+</div>
+
+<div class="link" ng-show="message">
+  <span link-view ng-model="message"></span>
+</div>
+
+<div class = 'errorMessage' ng-model="error" ng-show="error">
+  <p>{{error}}</p>
+</div>
+
+<!--  -->
