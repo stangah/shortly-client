@@ -13,7 +13,6 @@ group :development, :test do
   gem 'rspec'
   gem 'thin'
   gem 'tux'
-  gem 'pg'
 end
 
 group :production do

@@ -4,8 +4,11 @@ require 'active_record'
 require 'digest/sha1'
 require 'bcrypt'
 require 'pry'
+require 'sqlite3'
+require 'pg'
 require 'uri'
 require 'open-uri'
+require './environments'
 # require 'nokogiri'
 
 ###########################################################
@@ -16,25 +19,25 @@ enable :sessions
 
 set :public_folder, File.dirname(__FILE__) + '/public'
 
-configure :development do
-    ActiveRecord::Base.establish_connection(
-       :adapter => 'sqlite3',
-       :database =>  'db/dev.sqlite3.db'
-     )
-end
+# configure :development do
+#     ActiveRecord::Base.establish_connection(
+#        :adapter => 'postgresql',
+#        :database =>  'db/dev.postgresql.db'
+#      )
+# end
 
-configure :production do
-  db = URI.parse(ENV['DATABASE_URL'] || 'postgres:///localhost/mydb')
+# configure :production do
+#   db = URI.parse(ENV['DATABASE_URL'] || 'postgres:///localhost/db')
 
-  ActiveRecord::Base.establish_connection(
-    :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
-    :host     => db.host,
-    :username => db.user,
-    :password => db.password,
-    :database => db.path[1..-1],
-    :encoding => 'utf8'
-  )
-end
+#   ActiveRecord::Base.establish_connection(
+#     :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
+#     :host     => db.host,
+#     :username => db.user,
+#     :password => db.password,
+#     :database => db.path[1..-1],
+#     :encoding => 'utf8'
+#   )
+# end
 
 # Handle potential connection pool timeout issues
 after do
