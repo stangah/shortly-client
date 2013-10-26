@@ -20,6 +20,7 @@ group :production do
   gem 'pry'
   gem 'rspec'
   gem 'thin'
+  gem 'activerecord-sqlite3-adapter'
 end
 
 gem 'rake'
