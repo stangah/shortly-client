@@ -117,6 +117,10 @@ post '/login' do
     end
 end
 
+get '/favicon.ico' do
+    []
+end
+
 get '/signup' do
     erb :signup
 end
