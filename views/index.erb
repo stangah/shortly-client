@@ -1,15 +1,16 @@
-<div id="layout" class="navigation">
-  <ul>
-    <li><a href="#" class="index">All Links</a></li>
-    <li><a href="#/create" class="create">Shorten</a></li>
-  </ul>
-</div>
-
-<span> <%= current_user().username.to_json() %> </span>
-<a href="/logout">Logout</a>
-
 <script src="lib/angular.min.js"></script>
 <div ng-app="shortlyApp">
+
+  <div id="layout" class="navigation">
+    <ul>
+      <li><a ng-click="showShortener = false" class="index">All Links</a></li>
+      <li><a ng-click="showShortener = true" class="create">Shorten</a></li>
+    </ul>
+  </div>
+
+  <span> <%= current_user().username.to_json() %> </span>
+  <a href="/logout">Logout</a>
+
 
   <div id="container" ng-view></div>
   <script src="/client/app.js"></script>
