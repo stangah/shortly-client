@@ -13,10 +13,14 @@ group :development, :test do
   gem 'rspec'
   gem 'thin'
   gem 'tux'
+  gem 'pg'
 end
 
 group :production do
   gem 'pg'
+  gem 'pry'
+  gem 'rspec'
+  gem 'thin'
 end
 
 gem 'rake'
