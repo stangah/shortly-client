@@ -6,6 +6,8 @@ gem 'activerecord', '~>3.2'
 gem 'sinatra-activerecord'
 gem 'bcrypt-ruby'
 #gem 'nokogiri'
+gem 'activerecord-sqlite3-adapter'
+
 
 group :development, :test do
   gem 'sqlite3'
